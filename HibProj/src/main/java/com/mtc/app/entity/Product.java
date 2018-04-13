@@ -2,6 +2,8 @@ package com.mtc.app.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,6 +13,7 @@ public class Product {
 	
 	@Id
 	@Column(name="product_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@Column(name="product_name")
 	private String name;
@@ -28,9 +31,13 @@ public class Product {
 		this.name = name;
 		this.description = description;
 		this.price = price;
+	}	
+
+	public Product(String name, String description, float price) {	
+		this.name = name;
+		this.description = description;
+		this.price = price;
 	}
-
-
 
 	public int getId() {
 		return id;
